@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>خوانا</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="logo">خ</span>
+      <div>
+        <h1>خوانا</h1>
+        <div id="host" class="host">—</div>
+      </div>
+    </div>
+    <label class="switch" title="فعال برای این سایت">
+      <input type="checkbox" id="siteOn">
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <div id="note" class="note" hidden>این تب باید یک‌بار رفرش شود تا اکستنشن در آن فعال شود.</div>
+
+  <main id="panel">
+    <!-- Always available -->
+    <section>
+      <h2>بخش اصلی صفحه</h2>
+      <div class="row">
+        <button id="pick" type="button" class="btn primary">انتخاب ستون متن…</button>
+        <button id="clearPanel" type="button" class="btn" hidden>حذف انتخاب</button>
+      </div>
+      <div id="panelStatus" class="hint"></div>
+      <div class="range"><span>عرض بخش</span><input type="range" id="panelWidth" min="30" max="100" step="1"><b id="panelWidthV"></b></div>
+      <label class="check"><input type="checkbox" id="liftParents"> آزادکردن محدودیت عرض والدها</label>
+    </section>
+
+    <section>
+      <h2>حالت تمرکز <span class="kbd">Alt+Shift+F</span></h2>
+      <button id="focusBtn" type="button" class="btn primary wide">روشن‌کردن حالت تمرکز</button>
+      <div class="range"><span>تعداد خط واضح</span><input type="range" id="focusLines" min="1" max="8" step="1"><b id="focusLinesV"></b></div>
+      <div class="range"><span>شدت مات‌بودن</span><input type="range" id="focusBlur" min="0" max="16" step="1"><b id="focusBlurV"></b></div>
+      <div class="range"><span>تیرگی اطراف</span><input type="range" id="focusDim" min="0" max="90" step="5"><b id="focusDimV"></b></div>
+      <select id="focusFollow">
+        <option value="mouse">نوار دنبال موس می‌آید</option>
+        <option value="fixed">نوار ثابت وسط صفحه</option>
+      </select>
+    </section>
+
+    <!-- Needs the site switch on -->
+    <div id="appearance">
+      <section>
+        <h2>رنگ‌بندی</h2>
+        <div id="themes" class="themes"></div>
+        <div id="customColors" class="colors" hidden>
+          <label>پس‌زمینه <input type="color" id="cBg"></label>
+          <label>متن <input type="color" id="cFg"></label>
+          <label>لینک <input type="color" id="cLink"></label>
+        </div>
+      </section>
+
+      <section>
+        <h2>بافت کاغذ مات</h2>
+        <select id="paper">
+          <option value="off">خاموش</option>
+          <option value="bg">روی پس‌زمینهٔ صفحه</option>
+          <option value="panel">برگهٔ بخش انتخاب‌شده (با سایه)</option>
+          <option value="all">روی همه چیز (شامل متن)</option>
+        </select>
+        <div class="range"><span>شدت بافت</span><input type="range" id="paperAmount" min="0" max="100" step="5"><b id="paperAmountV"></b></div>
+      </section>
+
+      <section>
+        <h2>فونت</h2>
+        <select id="font"></select>
+        <input type="text" id="customFont" placeholder="نام فونت نصب‌شده، مثلا Sahel" hidden dir="ltr">
+      </section>
+
+      <section>
+        <h2>اندازه و فاصله</h2>
+        <div class="range"><span>اندازهٔ متن</span><input type="range" id="fontSize" min="12" max="34" step="1"><b id="fontSizeV"></b></div>
+        <div class="range"><span>فاصلهٔ خطوط</span><input type="range" id="lineHeight" min="1.2" max="3" step="0.1"><b id="lineHeightV"></b></div>
+        <div class="range"><span>عرض پاراگراف</span><input type="range" id="maxWidth" min="0" max="1400" step="20"><b id="maxWidthV"></b></div>
+      </section>
+
+      <section class="checks">
+        <label><input type="checkbox" id="autoDir"> تشخیص خودکار RTL / LTR</label>
+        <label><input type="checkbox" id="codeStyle"> کد زیبا (هایلایت + دکمهٔ کپی)</label>
+        <label><input type="checkbox" id="justify"> تراز دو طرف پاراگراف‌ها</label>
+        <label><input type="checkbox" id="overrideBg"> یکدست‌کردن پس‌زمینهٔ بخش‌های صفحه</label>
+        <label><input type="checkbox" id="mainOnly"> فونت و اندازه فقط برای متن اصلی (نه منو و دکمه‌ها)</label>
+        <label><input type="checkbox" id="everywhere"> اعمال روی همهٔ سایت‌ها</label>
+      </section>
+    </div>
+
+    <footer>
+      <button id="reset" type="button" class="btn wide">بازگشت به پیش‌فرض</button>
+    </footer>
+  </main>
+
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
